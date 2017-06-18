@@ -9,6 +9,7 @@ int runRedBlink = 5;
 
 void setup() {
   // put your setup code here, to run once:
+  Serial.begin(9600);
   pinMode(redLED, OUTPUT);
   pinMode(yellowLED, OUTPUT);
 }
@@ -16,11 +17,13 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   for (int j = 1; j < runRedBlink; j=j+1){
+    String value = "value is :";
+    String printAll = value + j;
     digitalWrite(redLED, HIGH);
     delay(redOnTime);
     digitalWrite(redLED, LOW);
     delay(redOffTime);
-    Serial.println("value is :" + j);
+    Serial.println(printAll);
     }
   
   digitalWrite(yellowLED, HIGH);
